@@ -3,7 +3,10 @@ import "dotenv/config";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import chalk from "chalk";
+import connectionToDB from "./config/connectDB.js";
 import { morganMiddleware, systemLogs } from "./utils/Logger.js";
+
+await connectionToDB();
 
 const app = express();
 
@@ -30,10 +33,10 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(
     `${chalk.green.bold("☑️")} 👍 Server running in ${chalk.yellow.bold(
-      process.env.NODE_ENV
-    )} mode on port ${chalk.blue.bold(PORT)}`
+      process.env.NODE_ENV,
+    )} mode on port ${chalk.blue.bold(PORT)}`,
   );
   systemLogs.info(
-    `Server  running in ${process.env.NODE_ENV} mode on port ${PORT}`
+    `Server  running in ${process.env.NODE_ENV} mode on port ${PORT}`,
   );
 });
