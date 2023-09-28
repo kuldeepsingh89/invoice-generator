@@ -6,6 +6,7 @@ import chalk from "chalk";
 import connectionToDB from "./config/connectDB.js";
 import { morganMiddleware, systemLogs } from "./utils/Logger.js";
 import mongoSanitize from "express-mongo-sanitize";
+import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 
 await connectionToDB();
 
@@ -31,15 +32,18 @@ app.get("/api/v1/test", (req, res) => {
   });
 });
 
+app.use(notFound);
+app.use(errorHandler);
+
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(
     `${chalk.green.bold("☑️")} 👍 Server running in ${chalk.yellow.bold(
-      process.env.NODE_ENV
-    )} mode on port ${chalk.blue.bold(PORT)}`
+      process.env.NODE_ENV,
+    )} mode on port ${chalk.blue.bold(PORT)}`,
   );
   systemLogs.info(
-    `Server  running in ${process.env.NODE_ENV} mode on port ${PORT}`
+    `Server  running in ${process.env.NODE_ENV} mode on port ${PORT}`,
   );
 });
