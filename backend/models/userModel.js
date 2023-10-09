@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcryptjs";
-import { USER } from "../constants";
+import { USER } from "../constants/index.js";
 import validator from "validator";
 
 const userSchema = new Schema(
@@ -19,7 +19,7 @@ const userSchema = new Schema(
       trim: true,
       validate: {
         validator: function (value) {
-          return /^[A-z][A-z0-9-_]{3, 23}$/.test(value);
+          return /^[A-z][A-z0-9-_]{3,23}$/.test(value);
         },
         message:
           "username must be alphanumeric without any special characters. Hypen and Underscore allowed",
