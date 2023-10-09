@@ -8,6 +8,8 @@ import { morganMiddleware, systemLogs } from "./utils/Logger.js";
 import mongoSanitize from "express-mongo-sanitize";
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 
+import authRoutes from "./routes/authRoutes.js";
+
 await connectionToDB();
 
 const app = express();
@@ -32,6 +34,8 @@ app.get("/api/v1/test", (req, res) => {
   });
 });
 
+app.use("/api/v1/auth", authRoutes);
+
 app.use(notFound);
 app.use(errorHandler);
 
@@ -40,10 +44,10 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(
     `${chalk.green.bold("☑️")} 👍 Server running in ${chalk.yellow.bold(
-      process.env.NODE_ENV,
-    )} mode on port ${chalk.blue.bold(PORT)}`,
+      process.env.NODE_ENV
+    )} mode on port ${chalk.blue.bold(PORT)}`
   );
   systemLogs.info(
-    `Server  running in ${process.env.NODE_ENV} mode on port ${PORT}`,
+    `Server  running in ${process.env.NODE_ENV} mode on port ${PORT}`
   );
 });
