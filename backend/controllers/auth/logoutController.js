@@ -31,7 +31,11 @@ export const logoutUser = asyncHandler(async (req, res) => {
 
   await existingUser.save();
 
-  res.clearCookie();
+  res.clearCookie("jwt", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
 
   res.status(200).json({
     success: true,
