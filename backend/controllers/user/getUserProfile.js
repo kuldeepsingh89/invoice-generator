@@ -3,7 +3,7 @@ import User from "../../models/userModel.js";
 
 /**
  * @description Get User Profile
- * @api POST /api/v1/user/profile
+ * @api GET /api/v1/user/profile
  * @access PRIVATE
  *
  */
