@@ -6,7 +6,7 @@ const checkAuth = asyncHandler(async (req, res, next) => {
   let jwt_token;
 
   // Bearer <token>
-  const authHeader = req.header.authorization || req.header.authorization;
+  const authHeader = req.headers.authorization || req.headers.authorization;
 
   if (!authHeader.startsWith("Bearer")) {
     return res.sendStatus(401);
@@ -25,7 +25,7 @@ const checkAuth = asyncHandler(async (req, res, next) => {
         req.user = await User.findById(userId).select("-password");
         req.roles = decoded.roles;
         next();
-      },
+      }
     );
   }
 });

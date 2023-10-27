@@ -9,6 +9,8 @@ import mongoSanitize from "express-mongo-sanitize";
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 
 import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import { apiLimiter } from "./middlewares/apiLimit.js";
 
 await connectionToDB();
 
@@ -35,6 +37,7 @@ app.get("/api/v1/test", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/user", apiLimiter, userRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
