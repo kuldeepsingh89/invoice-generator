@@ -1,17 +1,14 @@
-import { Outlet } from "react-router-dom"
-import { Box } from "@mui/material"
+import { Box } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-      }}
-    >
-      <Box component={"main"} sx={{ flexGrow: 1 }}>
+    <Box sx={{ display: "flex" }}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         <Outlet />
       </Box>
     </Box>
-  )
-}
-export default Layout
+  );
+};
+
+export default Layout;
