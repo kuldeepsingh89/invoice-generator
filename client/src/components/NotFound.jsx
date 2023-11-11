@@ -1,5 +1,5 @@
-import { Box, Container, Typography } from "@mui/material"
-import { FaHeartBroken, FaSadTear } from "react-icons/fa"
+import { Box, Container, Typography } from "@mui/material";
+import { FaHeartBroken, FaSadTear } from "react-icons/fa";
 
 const NotFound = () => {
   return (
@@ -26,7 +26,7 @@ const NotFound = () => {
         </Box>
       </Box>
     </Container>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;
