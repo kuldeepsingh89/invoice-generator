@@ -16,7 +16,7 @@ const NotFound = () => {
         <Typography
           variant="h1"
           align="center"
-          sx={{ fontSize: "10rem", mt: "14rem" }}
+          sx={{ fontSize: "10rem", mt: "7rem" }}
         >
           404 Not Found
         </Typography>

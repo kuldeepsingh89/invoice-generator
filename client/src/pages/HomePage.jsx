@@ -3,7 +3,7 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "../styles/homepage.css";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
-  fontSize: "12rem",
+  fontSize: "10rem",
   [theme.breakpoints.down("sm")]: {
     fontSize: "9rem",
   },
@@ -31,7 +31,7 @@ const HomePage = () => {
               <StyledTypography
                 variant="h1"
                 align="center"
-                sx={{ textTransform: "uppercase", mt: "13rem" }}
+                sx={{ textTransform: "uppercase", mt: "6rem" }}
                 className="homepage-header"
               >
                 Invoice
