@@ -1,4 +1,4 @@
-import { CssBaseline } from "@mui/material";
+import  CssBaseline  from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -9,6 +9,8 @@ import NotFound from "./components/NotFound";
 import { customTheme } from "./customTheme";
 import useTitle from "./hooks/useTitle";
 import HomePage from "./pages/HomePage";
+import RegisterPage from "./features/auth/pages/RegisterPage";
+import VerifiedPage from "./features/auth/pages/VerifiedPage";
 
 const App = () => {
   useTitle("Invoice Generator - Home");
@@ -19,10 +21,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-
+            <Route path={"register"} element={<RegisterPage />} />
+            <Route path={"auth/verify"} element={<VerifiedPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+
       <Footer />
       <ToastContainer theme="dark" />
     </ThemeProvider>

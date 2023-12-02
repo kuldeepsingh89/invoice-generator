@@ -23,7 +23,7 @@ const Footer = () => {
       }}
       className="footer"
     >
-      <CssBaseline />
+      {/*<CssBaseline />*/}
       <Box
         component="footer"
         sx={{
